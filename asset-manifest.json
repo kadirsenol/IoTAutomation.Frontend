@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/kadirsenol/IoTAutomation.Frontend/static/css/main.433cc558.css",
-    "main.js": "/kadirsenol/IoTAutomation.Frontend/static/js/main.ddb9fc45.js",
-    "static/js/453.24dd8b7d.chunk.js": "/kadirsenol/IoTAutomation.Frontend/static/js/453.24dd8b7d.chunk.js",
-    "index.html": "/kadirsenol/IoTAutomation.Frontend/index.html",
-    "static/media/blob-haikei.svg": "/kadirsenol/IoTAutomation.Frontend/static/media/blob-haikei.ed4231cd548cd312fe4f.svg",
-    "main.433cc558.css.map": "/kadirsenol/IoTAutomation.Frontend/static/css/main.433cc558.css.map",
-    "main.ddb9fc45.js.map": "/kadirsenol/IoTAutomation.Frontend/static/js/main.ddb9fc45.js.map",
-    "453.24dd8b7d.chunk.js.map": "/kadirsenol/IoTAutomation.Frontend/static/js/453.24dd8b7d.chunk.js.map"
+    "main.css": "/IoTAutomation.Frontend/static/css/main.e467f3e3.css",
+    "main.js": "/IoTAutomation.Frontend/static/js/main.66399fde.js",
+    "static/js/453.24dd8b7d.chunk.js": "/IoTAutomation.Frontend/static/js/453.24dd8b7d.chunk.js",
+    "index.html": "/IoTAutomation.Frontend/index.html",
+    "static/media/blob-haikei.svg": "/IoTAutomation.Frontend/static/media/blob-haikei.ed4231cd548cd312fe4f.svg",
+    "main.e467f3e3.css.map": "/IoTAutomation.Frontend/static/css/main.e467f3e3.css.map",
+    "main.66399fde.js.map": "/IoTAutomation.Frontend/static/js/main.66399fde.js.map",
+    "453.24dd8b7d.chunk.js.map": "/IoTAutomation.Frontend/static/js/453.24dd8b7d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.433cc558.css",
-    "static/js/main.ddb9fc45.js"
+    "static/css/main.e467f3e3.css",
+    "static/js/main.66399fde.js"
   ]
 }
