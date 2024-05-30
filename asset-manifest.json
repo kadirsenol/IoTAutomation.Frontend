@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/IoTAutomation.Frontend/static/css/main.e467f3e3.css",
-    "main.js": "/IoTAutomation.Frontend/static/js/main.077e43d2.js",
+    "main.js": "/IoTAutomation.Frontend/static/js/main.b0fba123.js",
     "static/js/453.24dd8b7d.chunk.js": "/IoTAutomation.Frontend/static/js/453.24dd8b7d.chunk.js",
     "index.html": "/IoTAutomation.Frontend/index.html",
     "static/media/blob-haikei.svg": "/IoTAutomation.Frontend/static/media/blob-haikei.ed4231cd548cd312fe4f.svg",
     "main.e467f3e3.css.map": "/IoTAutomation.Frontend/static/css/main.e467f3e3.css.map",
-    "main.077e43d2.js.map": "/IoTAutomation.Frontend/static/js/main.077e43d2.js.map",
+    "main.b0fba123.js.map": "/IoTAutomation.Frontend/static/js/main.b0fba123.js.map",
     "453.24dd8b7d.chunk.js.map": "/IoTAutomation.Frontend/static/js/453.24dd8b7d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e467f3e3.css",
-    "static/js/main.077e43d2.js"
+    "static/js/main.b0fba123.js"
   ]
 }
