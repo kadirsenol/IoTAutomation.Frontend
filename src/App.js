@@ -59,7 +59,7 @@ function App() {
   };
  
 
-  axios.defaults.baseURL = "http://localhost:5051/api";
+  axios.defaults.baseURL = "https://api.kadirsenol.com";
   return (
     <>
       <Routes>
