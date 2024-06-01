@@ -94,7 +94,7 @@ const Login = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="w-1/4 bg-white bg-opacity-70 rounded-xl">
+          <div className="w-1/3 bg-white bg-opacity-70 rounded-xl">
             <div className="flex justify-center">
               <TextField
                 variant="standard"

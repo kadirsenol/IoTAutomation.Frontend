@@ -29,9 +29,15 @@ function App() {
   const role = useSelector((state) => state.user.role);
   const dispatch = useDispatch();
   const location = useLocation();
-  
+  const isDesktopMode = () => {
+    const nonDesktopDeviceRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet|Windows Phone|Kindle|Silk|KFAPWI/i;
+    return !nonDesktopDeviceRegex.test(navigator.userAgent);
+  }
 
-  useEffect(() => {      
+  useEffect(() => {  
+    if (isDesktopMode()) {
+      document.body.classList.add("desktop-mode");
+    }    
     checkToken();     
   }, [location]);
 

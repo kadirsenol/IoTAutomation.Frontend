@@ -128,7 +128,7 @@ const Register = () => {
           }}
           className="flex justify-center min-h-screen items-center"
         >
-          <div className="w-1/4 opacity-1 bg-white bg-opacity-80 rounded-xl">
+          <div className="w-1/3 opacity-1 bg-white bg-opacity-80 rounded-xl">
             <div className="flex justify-center">
               <TextField
                 variant="standard"
