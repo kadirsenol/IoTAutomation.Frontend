@@ -50,13 +50,7 @@ export default function Navbar() {
 
   const getSolution = async () => {
     try {
-      const response = await axios.get("/Solution/Get",
-      {
-        headers: {
-          'Origin': 'https://kadirsenol.com'
-        }
-      }
-      );
+      const response = await axios.get("/Solution/Get");
 
       if (response.status === 200) {
         dispatch(setSolutions(response.data));
