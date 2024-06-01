@@ -108,9 +108,9 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-gray-200 dark:bg-gray-900 ">
+      <footer className="bg-gray-200 ">
         <div className="flex justify-center me-24 -mb-24">
-          <h2 className="mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white mt-4">
+          <h2 className="mb-3 text-sm font-semibold text-gray-900 uppercase mt-4">
             Contact Me
           </h2>
         </div>
@@ -119,7 +119,7 @@ const Footer = () => {
             <div className="flex justify-center mt-3 ms-4">
               {/* <img src={footerimg} className="h-8 me-3" alt="FlowBite Logo" /> */}
               <Draw className="ms-1 me-1 mt-2" fontSize="small" />
-              <h2 className=" cursor-default text-sm font-semibold text-gray-900 uppercase dark:text-white mt-2 ms-2">
+              <h2 className=" cursor-default text-sm font-semibold text-gray-900 uppercase mt-2 ms-2">
                 Plase Write Me
               </h2>
             </div>
@@ -134,7 +134,7 @@ const Footer = () => {
                 }
               >
                 {" "}
-                <LinkedIn className="text-gray-500 hover:text-gray-900 dark:hover:text-white cursor-pointer" />{" "}
+                <LinkedIn className="text-gray-500 hover:text-gray-900 cursor-pointer" />{" "}
               </div>
 
               <div
@@ -143,7 +143,7 @@ const Footer = () => {
                 }
               >
                 {" "}
-                <GitHub className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 cursor-pointer" />{" "}
+                <GitHub className="text-gray-500 hover:text-gray-900 ms-5 cursor-pointer" />{" "}
               </div>
 
               <div
@@ -152,7 +152,7 @@ const Footer = () => {
                 }
               >
                 {" "}
-                <Email className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 cursor-pointer" />{" "}
+                <Email className="text-gray-500 hover:text-gray-900 ms-5 cursor-pointer" />{" "}
               </div>
 
               <div
@@ -161,7 +161,7 @@ const Footer = () => {
                 }
               >
                 {" "}
-                <WhatsApp className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 cursor-pointer" />{" "}
+                <WhatsApp className="text-gray-500 hover:text-gray-900 ms-5 cursor-pointer" />{" "}
               </div>
 
               <div
@@ -173,7 +173,7 @@ const Footer = () => {
                 }
               >
                 {" "}
-                <LocationOn className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 cursor-pointer" />{" "}
+                <LocationOn className="text-gray-500 hover:text-gray-900 ms-5 cursor-pointer" />{" "}
               </div>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -182,7 +182,7 @@ const Footer = () => {
                   navigate("/");
                 }}
               >
-                <h2 className=" cursor-pointer  mt-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className=" cursor-pointer  mt-6 text-sm font-semibold text-gray-900 uppercase">
                   Home
                 </h2>
               </div>
@@ -193,7 +193,7 @@ const Footer = () => {
                     navigate("/Register");
                   }}
                 >
-                  <h2 className="cursor-pointer -ms-3 mt-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                  <h2 className="cursor-pointer -ms-3 mt-6 text-sm font-semibold text-gray-900 uppercase">
                     Register
                   </h2>
                 </div>
@@ -203,7 +203,7 @@ const Footer = () => {
                     navigate("/Login");
                   }}
                 >
-                  <h2 className="cursor-pointer mt-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                  <h2 className="cursor-pointer mt-6 text-sm font-semibold text-gray-900 uppercase">
                     Login
                   </h2>
                 </div>
@@ -214,13 +214,13 @@ const Footer = () => {
                   navigate("/Whoami");
                 }}
               >
-                <h2 className=" cursor-pointer mt-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className=" cursor-pointer mt-6 text-sm font-semibold text-gray-900 uppercase">
                   Who am I ?
                 </h2>
               </div>
             </div>
           </div>
-          <hr className="my-3 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <hr className="my-3 border-gray-200 sm:mx-auto lg:my-8" />
 
           <div className="w-56 mb-1 -mt-7">
             <TextArea value={clearText} row={6} width={"auto"} />
@@ -281,7 +281,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex justify-end items-end">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 me-3 mb-1">
+          <span className="text-sm text-gray-500 sm:text-center me-3 mb-1">
             © 2024{" "}
             <a href="" className="hover:underline text-black">
               Kadir Şenol ™

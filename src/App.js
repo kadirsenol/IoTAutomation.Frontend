@@ -31,8 +31,7 @@ function App() {
   const location = useLocation();
   
 
-  useEffect(() => {  
-    document.body.classList.add("desktop-mode");        
+  useEffect(() => {   
     checkToken();     
   }, [location]);
 
