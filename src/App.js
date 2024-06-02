@@ -31,8 +31,44 @@ function App() {
   const location = useLocation();
   
 
-  useEffect(() => {   
-    checkToken();     
+  useEffect(() => {  
+
+    function C(k) {
+      return (document.cookie.match('(^|; )' + k + '=([^;]*)') || 0)[2];
+    }
+
+    const ua = navigator.userAgent;
+    const ismobile = / mobile/i.test(ua);
+    const mgecko = !!(/ gecko/i.test(ua) && / firefox\//i.test(ua));
+    const wasmobile = C('wasmobile') === 'was';
+    const desktopvp = 'user-scalable=yes, maximum-scale=2';
+
+    if (ismobile && !wasmobile) {
+      document.cookie = 'wasmobile=was';
+    } else if (!ismobile && wasmobile) {
+      const viewportMeta = document.querySelector('meta[name="viewport"]');
+      if (mgecko) {
+        const el = document.createElement('meta');
+        el.setAttribute('content', desktopvp);
+        el.setAttribute('name', 'viewport');
+        document.getElementsByTagName('head')[0].appendChild(el);
+      } else {
+        if (viewportMeta) {
+          viewportMeta.setAttribute('content', desktopvp);
+        } else {
+          const el = document.createElement('meta');
+          el.setAttribute('content', desktopvp);
+          el.setAttribute('name', 'viewport');
+          document.getElementsByTagName('head')[0].appendChild(el);
+        }
+      }
+    }
+
+
+
+    
+
+    checkToken();    
   }, [location]);
 
   const checkToken = () => {
