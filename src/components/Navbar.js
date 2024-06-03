@@ -56,7 +56,6 @@ export default function Navbar() {
         dispatch(setSolutions(response.data));
       }
     } catch (error) {
-      console.log(error);
       if (error.code === "ERR_NETWORK") {
         toast.error("Sunucuya bağlanılamadı. !");
       } else {
