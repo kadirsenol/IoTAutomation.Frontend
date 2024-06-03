@@ -78,7 +78,7 @@ const UserUpdateForm = ({user}) => {
     );
     try {
       const response = await axios.post(
-        "http://localhost:5051/api/admin/User/UpdateUser",
+        "https://api.kadirsenol.com/api/admin/User/UpdateUser",
         updatedValues,
         {
             headers: {

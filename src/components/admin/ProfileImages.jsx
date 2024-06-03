@@ -105,7 +105,7 @@ const ProfileImages = () => {
   const getProfileImages = async ()=>{
 
     try {
-      const response = await axios.get("http://localhost:5051/api/admin/ProfileImage/GetProfileImages",
+      const response = await axios.get("https://api.kadirsenol.com/api/admin/ProfileImage/GetProfileImages",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -144,7 +144,7 @@ const ProfileImages = () => {
   const deletePreOrderDetail = async (profileimageid)=>{
 
     try {
-      const response = await axios.post("http://localhost:5051/api/admin/ProfileImage/DeleteProfileImage",
+      const response = await axios.post("https://api.kadirsenol.com/api/admin/ProfileImage/DeleteProfileImage",
       {Id : profileimageid},
       {
         headers: {

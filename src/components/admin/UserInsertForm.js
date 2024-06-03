@@ -83,7 +83,7 @@ const UserInsertForm = () => {
   );
     try {
       const response = await axios.post(
-        "http://localhost:5051/api/admin/User/InsertUser",
+        "https://api.kadirsenol.com/api/admin/User/InsertUser",
         updatedValues,
         {
             headers: {

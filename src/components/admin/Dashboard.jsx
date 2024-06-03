@@ -31,7 +31,7 @@ const Dashboard = () => {
   const getDashBoardData = async ()=>{
 
     try {
-      const response = await axios.get("http://localhost:5051/api/admin/DashBoard/GetData",
+      const response = await axios.get("https://api.kadirsenol.com/api/admin/DashBoard/GetData",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`

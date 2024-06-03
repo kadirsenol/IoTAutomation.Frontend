@@ -177,7 +177,7 @@ const Users = () => {
   const getUsers = async ()=>{
 
     try {
-      const response = await axios.get("http://localhost:5051/api/admin/User/GetUsers",
+      const response = await axios.get("https://api.kadirsenol.com/api/admin/User/GetUsers",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -219,7 +219,7 @@ const Users = () => {
   const deleteUser = async (userid)=>{
 
     try {
-      const response = await axios.post("http://localhost:5051/api/admin/User/DeleteUser",
+      const response = await axios.post("https://api.kadirsenol.com/api/admin/User/DeleteUser",
       {Id : userid},
       {
         headers: {

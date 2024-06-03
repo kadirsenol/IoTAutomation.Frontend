@@ -124,7 +124,7 @@ const Solutions = () => {
   const getSolutions = async ()=>{
 
     try {
-      const response = await axios.get("http://localhost:5051/api/admin/Solution/GetSolutions",
+      const response = await axios.get("https://api.kadirsenol.com/api/admin/Solution/GetSolutions",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -165,7 +165,7 @@ const Solutions = () => {
   const deleteSolution = async (solutionid)=>{
 
     try {
-      const response = await axios.post("http://localhost:5051/api/admin/Solution/DeleteSolution",
+      const response = await axios.post("https://api.kadirsenol.com/api/admin/Solution/DeleteSolution",
       {Id : solutionid},
       {
         headers: {

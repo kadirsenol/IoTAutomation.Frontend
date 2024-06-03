@@ -99,7 +99,7 @@ const PreOrders = () => {
   const getPreOrders = async ()=>{
 
     try {
-      const response = await axios.get("http://localhost:5051/api/admin/PreOrder/GetPreOrders",
+      const response = await axios.get("https://api.kadirsenol.com/api/admin/PreOrder/GetPreOrders",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -139,7 +139,7 @@ const PreOrders = () => {
   const deletePreOrder = async (preorderid)=>{
 
     try {
-      const response = await axios.post("http://localhost:5051/api/admin/PreOrder/DeletePreOrder",
+      const response = await axios.post("https://api.kadirsenol.com/api/admin/PreOrder/DeletePreOrder",
       {Id : preorderid},
       {
         headers: {

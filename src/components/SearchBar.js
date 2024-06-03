@@ -60,7 +60,7 @@ export default function SearchBar() {
 
           try {
             const response = await axios.post(
-              "http://localhost:5051/api/Solution/Search",
+              "https://api.kadirsenol.com/api/Solution/Search",
                {solutionName: solutionName}
             );
             if (response.status === 200) {

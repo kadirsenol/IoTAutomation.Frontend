@@ -66,7 +66,7 @@ const SolutionInsertForm = () => {
     );    
     try {
       const response = await axios.post(
-        "http://localhost:5051/api/admin/Solution/InsertSolution",
+        "https://api.kadirsenol.com/api/admin/Solution/InsertSolution",
         updatedValues,
         {
             headers: {

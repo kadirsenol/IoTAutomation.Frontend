@@ -161,7 +161,7 @@ const SmartLightApps = () => {
   const getSmartLightApps = async ()=>{
 
     try {
-      const response = await axios.get("http://localhost:5051/api/admin/SmartLightApp/GetSmartLightApps",
+      const response = await axios.get("https://api.kadirsenol.com/api/admin/SmartLightApp/GetSmartLightApps",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -201,7 +201,7 @@ const SmartLightApps = () => {
   const deleteSmartLightApp = async (solutionid)=>{
 
     try {
-      const response = await axios.post("http://localhost:5051/api/admin/SmartLightApp/DeleteSmartLightApp",
+      const response = await axios.post("https://api.kadirsenol.com/api/admin/SmartLightApp/DeleteSmartLightApp",
       {Id : solutionid},
       {
         headers: {

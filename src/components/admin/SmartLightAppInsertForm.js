@@ -66,7 +66,7 @@ const SmartLightAppInsertForm = () => {
     );    
     try {
       const response = await axios.post(
-        "http://localhost:5051/api/admin/SmartLightApp/InsertSmartLightApp",
+        "https://api.kadirsenol.com/api/admin/SmartLightApp/InsertSmartLightApp",
         updatedValues,
         {
             headers: {
