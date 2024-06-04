@@ -59,7 +59,7 @@ function App() {
   };
  
 
-  axios.defaults.baseURL = "https://api/kadirsenol.com/api";
+  axios.defaults.baseURL = "https://api.kadirsenol.com/api";
   return (
     <>
       <Routes>
