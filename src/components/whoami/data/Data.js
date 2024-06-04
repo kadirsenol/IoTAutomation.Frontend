@@ -2,7 +2,7 @@
 export const ProjectList = [
   {
     img: "./myProject.jpg",
-    title: "IoT Automation",
+    title: "IoT Automation Website",
     description:
       `IoT Authomation is my personal venture, 
       offering a comprehensive solution for controlling 
