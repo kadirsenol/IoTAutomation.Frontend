@@ -19,28 +19,27 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setModalStatus } from "../../store/slices/modalSlice";
 import { LoadingButton } from "@mui/lab";
-import { setIsGetSolution, setIsGetUser } from "../../store/slices/adminSlice";
+import { setIsGetSolution } from "../../store/slices/adminSlice";
 
 const registerLoginSchema = Yup.object().shape({
   Name: Yup.string()
-    .min(3, "En az 3 karakterli bir isim giriniz")
-    .max(15, "En fazla 15 karakterli isim giriniz"),
+    .min(3, "You have a name with at least 3 characters")
+    .max(15, "Enter a name with a maximum of 15 characters"),
   Price: Yup.string()
-    .matches(/^\d+$/, "Lütfen rakam olacak şekilde giriş yapiniz.")
-    .min(1, "Lütfen en düşük 1 olacak sekilde Price giriniz.")
-    .max(5, "Lütfen en fazla 99999 olacak sekilde Price giriniz.")
+    .matches(/^\d+$/, "Please enter as a number.")
+    .min(1, "Please enter the price as the lowest will be 1.")
+    .max(5, "Please enter the price as it will be no more than 99999.")
     .test(
       "startzerovalid",
-      "Price 0 ile başlayamaz",
+      "Price can't start with 0",
       (value) => !value || (value.length > 0 && value[0] !== "0")
     ),  
   isDelete: Yup.string()
-    .oneOf(['true', 'false'], 'Lütfen sadece "true" veya "false" şeklinde isConfirmEmail giriniz.')    
+    .oneOf(['true', 'false'], 'Please just enter isConfirmEmail as "true" or "false".')    
 });
 
 const SolutionUpdateForm = ({solution}) => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(true);
   const isOpen = useSelector((state)=>state.modal.status);
   const [loadingButton, setLoadingButton] = useState(false);
 
@@ -74,17 +73,17 @@ const SolutionUpdateForm = ({solution}) => {
         actions.resetForm();
       } else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
     } else if (error.response.status === 401) {
-        toast.error("Lütfen giriş yapınız.");
+        toast.error("Please make a user login.");
         navigate("/Login");
       } else if (error.response.status === 400) {
         //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
@@ -94,7 +93,7 @@ const SolutionUpdateForm = ({solution}) => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }
     dispatch(setModalStatus(false));

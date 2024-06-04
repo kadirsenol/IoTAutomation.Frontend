@@ -67,14 +67,14 @@ export default function SearchBar() {
               setSolution(response.data)
             } else {
               toast.info(
-                "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+                "An unexpected situation has occurred, please try again by checking your information."
               );
             }
           } catch (error) {
             if (error.code === "ERR_NETWORK") {
-              toast.error("Sunucuya bağlanılamadı. !");
+              toast.error("Could not connect to the server.");
             } else {
-              toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+              toast.error("Opps! An unexpected error has occurred.");
             }
           }
         }

@@ -116,17 +116,17 @@ const ProfileImages = () => {
         setProfileImages(response.data)
       }else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
       }else if (error.response.status === 401) {
-          toast.error("Lütfen giriş yapınız.");
+          toast.error("Please make a user login.");
           navigate("/Login"); 
       } else if (error.response.status === 400) {
         //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
@@ -136,7 +136,7 @@ const ProfileImages = () => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }        
   }
@@ -157,17 +157,17 @@ const ProfileImages = () => {
         await getProfileImages();
       }else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
       }else if (error.response.status === 401) {
-          toast.error("Lütfen giriş yapınız.");
+          toast.error("Please make a user login.");
           navigate("/Login"); 
       } else if (error.response.status === 400) {
         //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
@@ -177,7 +177,7 @@ const ProfileImages = () => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }        
     dispatch(setModalStatus(false));

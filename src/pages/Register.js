@@ -24,33 +24,33 @@ import MyBackdrop from "../components/MyBackdrop";
 
 const registerLoginSchema = Yup.object().shape({
   Ad: Yup.string()
-    .required("Ad alani boş birakilamaz")
-    .min(3, "En az 3 karakterli bir isim giriniz")
-    .max(15, "En fazla 15 karakterli isim giriniz"),
+    .required("Name is required.")
+    .min(3, "You have a name with at least 3 characters")
+    .max(15, "Enter a name with a maximum of 15 characters"),
     Soyad: Yup.string()
-    .required("Soyad alani boş birakilamaz")
-    .min(3, "En az 3 karakterli bir Soyad giriniz")
-    .max(15, "En fazla 15 karakterli Soyad giriniz"),
+    .required("Surnameis required.")
+    .min(3, "Enter a Surname with at least 3 characters")
+    .max(15, "Enter a surname with a maximum of 15 characters"),
   TcNo: Yup.string()
-    .required("Tc No alani boş birakilamaz")
-    .matches(/^\d+$/, "Lütfen rakam olacak şekilde giriş yapiniz.")
-    .min(11, "Lütfen 11 haneli rakamdan olusan Tc No giriniz.")
-    .max(11, "Lütfen 11 haneli rakamdan olusan Tc No giriniz.")
+    .required("Tc No is required")
+    .matches(/^\d+$/, "Please enter as a number.")
+    .min(11, "Please enter the TcNo consisting of 11 digits.")
+    .max(11, "Please enter the TcNo consisting of 11 digits.")
     .test(
       "startzerovalid",
-      "Tc No 0 ile başlayamaz",
+      "Tc No can't start with No 0",
       (value) => value[0] !== "0"
     ),
   Email: Yup.string()
-    .required("Email alani boş birakilamaz")
-    .email("Lütfen mail formatinda giriş yapiniz.")
-    .max(30, "Lütfen 30 karakterden az email adresi giriniz."),
+    .required("Message is required.")
+    .email("Please log in in email format.")
+    .max(30, "The email should not be more than 30 characters long."),
   Password: Yup.string()
-    .required("Password alani boş birakilamaz")
-    .min(4, "Lütfen minimum 4 karakterden olusacak bir sifre giriniz."),
+    .required("Password is required.")
+    .min(4, "Please enter a password that will consist of at least 4 characters."),
   ConfirmPassword: Yup.string()
-    .required("Password doğrulama alani boş birakilamaz")
-    .oneOf([Yup.ref("Password")], "Girilen parolalar eşleşmiyor. !"),
+    .required("Confirm Password is required.")
+    .oneOf([Yup.ref("Password")], "The entered passwords do not match. "),
 });
 
 const Register = () => {
@@ -72,12 +72,12 @@ const Register = () => {
         navigate("/Login");
       } else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
@@ -89,7 +89,7 @@ const Register = () => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }
     dispatch(setCloseBackdrop());
@@ -133,7 +133,7 @@ const Register = () => {
               <TextField
                 variant="standard"
                 id="Ad"
-                label="Ad"
+                label="Name"
                 className="w-5/6"
                 onChange={handleChange("Ad")}
                 value={values.Ad}
@@ -153,7 +153,7 @@ const Register = () => {
               <TextField
                 variant="standard"
                 id="Soyad"
-                label="Soyad"
+                label="Surname"
                 className="w-5/6"
                 onChange={handleChange("Soyad")}
                 value={values.Soyad}

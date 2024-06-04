@@ -17,12 +17,12 @@ import {
 
 const registerLoginSchema = Yup.object().shape({
   Email: Yup.string()
-    .required("Email alani boş birakilamaz")
-    .email("Lütfen mail formatinda giriş yapiniz.")
-    .max(30, "Lütfen 30 karakterden az email adresi giriniz."),
+    .required("Message is required.")
+    .email("Please log in in email format.")
+    .max(30, "The email should not be more than 30 characters long."),
   Password: Yup.string()
-    .required("Password alani boş birakilamaz")
-    .min(4, "Lütfen minimum 4 karakterden olusacak bir sifre giriniz."),
+    .required("Password is required.")
+    .min(4, "Please enter a password that will consist of at least 4 characters."),
 });
 
 const Login = () => {
@@ -45,12 +45,12 @@ const Login = () => {
         toast.success(response.data.message);
       } else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
@@ -62,7 +62,7 @@ const Login = () => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }
     dispatch(setCloseBackdrop());

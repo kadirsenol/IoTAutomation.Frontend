@@ -16,25 +16,25 @@ import Modal from '../../Modal';
 
 const registerLoginSchema = Yup.object().shape({
   Ad: Yup.string()
-    .min(3, "En az 3 karakterli bir isim giriniz")
-    .max(15, "En fazla 15 karakterli isim giriniz"),
+    .min(3, "You have a name with at least 3 characters")
+    .max(15, "Enter a name with a maximum of 15 characters"),
   Soyad: Yup.string()
-    .min(3, "En az 3 karakterli bir Soyad giriniz")
-    .max(15, "En fazla 15 karakterli Soyad giriniz"),
+    .min(3, "Enter a Surname with at least 3 characters")
+    .max(15, "Enter a surname with a maximum of 15 characters"),
     NewPassword: Yup.string()
-    .min(4, "Lütfen minimum 4 karakterden olusacak bir sifre giriniz."),
+    .min(4, "Please enter a password that will consist of at least 4 characters."),
     ConfirmPassword: Yup.string()
     .when("NewPassword", (NewPassword, schema) => {
       if(NewPassword[0] !== undefined){
         return schema.required("New Password doğrulama alani boş birakilamaz")
-        .oneOf([Yup.ref("NewPassword")], "Girilen parolalar eşleşmiyor. !")
+        .oneOf([Yup.ref("NewPassword")], "The entered passwords do not match. ")
       }      
     }),
     Password: Yup.string()
     .when(['NewPassword', 'Ad', 'Soyad'], {
       is: (NewPassword, Ad, Soyad) => NewPassword || Ad || Soyad,
-      then: schema => schema.required("Hesap bilgilerinizi güncellemek için parola girilmesi zorunludur.")
-                           .min(4, "Lütfen minimum 4 karakterden oluşacak bir şifre giriniz."),
+      then: schema => schema.required("It is mandatory to enter a password to update your account information.")
+                           .min(4, "Please enter a password that will consist of at least 4 characters."),
       otherwise: schema => schema.notRequired()
     })
       
@@ -79,17 +79,17 @@ function AccountSettings() {
           toast.success(response.data.message);
         } else {
           toast.info(
-            "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+            "An unexpected situation has occurred, please try again by checking your information."
           );
         }
       } catch (error) {
         if (error.code === "ERR_NETWORK") {
-          toast.error("Sunucuya bağlanılamadı. !");
+          toast.error("Could not connect to the server.");
         } else if (error.response.status === 500) {
           //Problem(), server side bissunes exceptions and all catch error
           toast.error(error.response.data.detail);
         } else if (error.response.status === 401) {
-          toast.error("Lütfen giriş yapınız.");
+          toast.error("Please make a user login.");
           navigate("/Login");  
         } else if (error.response.status === 400) {
           //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
@@ -99,7 +99,7 @@ function AccountSettings() {
             });
           });
         } else {
-          toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+          toast.error("Opps! An unexpected error has occurred.");
         }
       }
       setClick(false);
@@ -143,10 +143,10 @@ function AccountSettings() {
               <TextField
                 variant="standard"
                 id="Ad"
-                label="Ad"              
+                label="Name"              
                 className="w-5/6"
                 onChange={handleChange("Ad")}
-                placeholder={(isLogin && (role === "Üye" || role ==="Admin")) ? name : "Ad"} 
+                placeholder={(isLogin && (role === "Üye" || role ==="Admin")) ? name : "Name"} 
                 value={values.Ad}
                 onBlur={handleBlur("Ad")}
                 error={touched.Ad && Boolean(errors.Ad)}
@@ -164,8 +164,8 @@ function AccountSettings() {
               <TextField
                 variant="standard"
                 id="Soyad"
-                label="Soyad"
-                placeholder={(isLogin && (role === "Üye" || role ==="Admin")) ? surName : "Soyad"}
+                label="Surname"
+                placeholder={(isLogin && (role === "Üye" || role ==="Admin")) ? surName : "Surname"}
                 className="w-5/6"
                 onChange={handleChange("Soyad")}
                 value={values.Soyad}

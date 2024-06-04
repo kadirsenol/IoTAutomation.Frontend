@@ -24,30 +24,29 @@ const ipv4Regex = /^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9
 const ipv6Regex = /^(([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4}|:)|(([0-9a-fA-F]{1,4}:){1,6}|:):([0-9a-fA-F]{1,4}|:){1,5}|(([0-9a-fA-F]{1,4}:){1,5}|:):([0-9a-fA-F]{1,4}|:){1,4}|(([0-9a-fA-F]{1,4}:){1,4}|:):([0-9a-fA-F]{1,4}|:){1,3}|(([0-9a-fA-F]{1,4}:){1,3}|:):([0-9a-fA-F]{1,4}|:){1,2}|(([0-9a-fA-F]{1,4}:){1,2}|:):([0-9a-fA-F]{1,4}|:){1}|(([0-9a-fA-F]{1,4}:){1}|:):([0-9a-fA-F]{1,4}|:))$/;
 const registerLoginSchema = Yup.object().shape({  
   UserId: Yup.string()
-    .required("UserId boş birakilamaz")
-    .matches(/^\d+$/, "Lütfen rakam olacak şekilde giriş yapiniz.")
+    .required("UserId is required.")
+    .matches(/^\d+$/, "Please enter as a number.")
     .test(
       "startzerovalid",
-      "UserId 0 ile başlayamaz",
+      "UserId cannot start with 0",
       (value) => !value || (value.length > 0 && value[0] !== "0")
     ),  
   EspIp: Yup.string()
   .test(
     'is-valid-ip',
-    'Geçerli bir IPv4 veya IPv6 adresi girin.',
+    'Enter a valid IPv4 or IPv6 address.',
     value => !value || ipv4Regex.test(value) || ipv6Regex.test(value)
   ),
   LightMode: Yup.string()
-    .oneOf(['true', 'false'], 'Lütfen sadece "true" veya "false" şeklinde isConfirmEmail giriniz.'),
+    .oneOf(['true', 'false'], 'Please just enter isConfirmEmail as "true" or "false".'),
   Active: Yup.string()
-    .oneOf(['true', 'false'], 'Lütfen sadece "true" veya "false" şeklinde isConfirmEmail giriniz.'),   
+    .oneOf(['true', 'false'], 'Please just enter isConfirmEmail as "true" or "false".'),   
   isDelete: Yup.string()
-    .oneOf(['true', 'false'], 'Lütfen sadece "true" veya "false" şeklinde isConfirmEmail giriniz.')    
+    .oneOf(['true', 'false'], 'Please just enter isConfirmEmail as "true" or "false".')    
 });
 
 const SmartLightAppInsertForm = () => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(true);
   const isOpen = useSelector((state)=>state.modal.status);
   const [loadingButton, setLoadingButton] = useState(false);
 
@@ -80,17 +79,17 @@ const SmartLightAppInsertForm = () => {
         actions.resetForm();
       } else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
     } else if (error.response.status === 401) {
-        toast.error("Lütfen giriş yapınız.");
+        toast.error("Please make a user login.");
         navigate("/Login");
       } else if (error.response.status === 400) {
         //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
@@ -100,7 +99,7 @@ const SmartLightAppInsertForm = () => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }
     dispatch(setModalStatus(false));

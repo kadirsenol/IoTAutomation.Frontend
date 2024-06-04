@@ -27,39 +27,39 @@ import { setIsGetUser } from "../../store/slices/adminSlice";
 
 const registerLoginSchema = Yup.object().shape({
   Ad: Yup.string()
-    .required("Ad alani boş birakilamaz")
-    .min(3, "En az 3 karakterli bir isim giriniz")
-    .max(15, "En fazla 15 karakterli isim giriniz"),
+    .required("Name is required.")
+    .min(3, "You have a name with at least 3 characters")
+    .max(15, "Enter a name with a maximum of 15 characters"),
   Soyad: Yup.string()
-    .required("Soyad alani boş birakilamaz")
-    .min(3, "En az 3 karakterli bir Soyad giriniz")
-    .max(15, "En fazla 15 karakterli Soyad giriniz"),
+    .required("Surnameis required.")
+    .min(3, "Enter a Surname with at least 3 characters")
+    .max(15, "Enter a surname with a maximum of 15 characters"),
   TcNo: Yup.string()
-    .required("TcNo alani boş birakilamaz")
-    .matches(/^\d+$/, "Lütfen rakam olacak şekilde giriş yapiniz.")
-    .min(11, "Lütfen 11 haneli rakamdan olusan Tc No giriniz.")
-    .max(11, "Lütfen 11 haneli rakamdan olusan Tc No giriniz.")
+    .required("TcNo is required.")
+    .matches(/^\d+$/, "Please enter as a number.")
+    .min(11, "Please enter the TcNo consisting of 11 digits.")
+    .max(11, "Please enter the TcNo consisting of 11 digits.")
     .test(
       "startzerovalid",
-      "Tc No 0 ile başlayamaz",
+      "Tc No can't start with No 0",
       (value) => !value || (value.length > 0 && value[0] !== "0")
     ),
   Email: Yup.string()
-    .required("Email alani boş birakilamaz")
-    .email("Lütfen mail formatinda giriş yapiniz.")
-    .max(30, "Lütfen 30 karakterden az email adresi giriniz."),
+    .required("Message is required.")
+    .email("Please log in in email format.")
+    .max(30, "The email should not be more than 30 characters long."),
   Password: Yup.string()
-    .required("Password alani boş birakilamaz")
-    .min(4, "Lütfen minimum 4 karakterden olusacak bir sifre giriniz."),
+    .required("Password is required.")
+    .min(4, "Please enter a password that will consist of at least 4 characters."),
   Rol: Yup.string()
-    .required("Rol alani boş birakilamaz")
-    .max(10, "Lütfen en fazla 10 karakterden oluşacak rol giriniz."),
+    .required("Role is required.")
+    .max(10, "Please enter a role that will consist of a maximum of 10 characters."),
   isConfirmEmail: Yup.string()
-    .oneOf(['true', 'false'], 'Lütfen sadece "true" veya "false" şeklinde isConfirmEmail giriniz.'),
+    .oneOf(['true', 'false'], 'Please just enter isConfirmEmail as "true" or "false".'),
   ExprationToken: Yup.string()
-    .matches(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/, "Lütfen geçerli bir tarih ve saat formatında giriş yapınız (YYYY-MM-DD HH:MM:SS)."),   
+    .matches(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/, "Please log in with a valid date and time format (YYYY-MM-DD HH:MM:SS)."),   
   isDelete: Yup.string()
-    .oneOf(['true', 'false'], 'Lütfen sadece "true" veya "false" şeklinde isConfirmEmail giriniz.')    
+    .oneOf(['true', 'false'], 'Please just enter isConfirmEmail as "true" or "false".')    
 });
 
 const UserInsertForm = () => {
@@ -97,17 +97,17 @@ const UserInsertForm = () => {
         actions.resetForm();
       } else {
         toast.info(
-          "Beklenmedik bir durum meydana geldi, bilgilerinizi kontrol ederek lutfen tekrar deneyin."
+          "An unexpected situation has occurred, please try again by checking your information."
         );
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
-        toast.error("Sunucuya bağlanılamadı. !");
+        toast.error("Could not connect to the server.");
       } else if (error.response.status === 500) {
         //Problem(), server side bissunes exceptions and all catch error
         toast.error(error.response.data.detail);
     } else if (error.response.status === 401) {
-        toast.error("Lütfen giriş yapınız.");
+        toast.error("Please make a user login.");
         navigate("/Login");
       } else if (error.response.status === 400) {
         //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
@@ -117,7 +117,7 @@ const UserInsertForm = () => {
           });
         });
       } else {
-        toast.error("Opps! Beklenmedik bir hata meydana geldi.");
+        toast.error("Opps! An unexpected error has occurred.");
       }
     }
     dispatch(setModalStatus(false));
