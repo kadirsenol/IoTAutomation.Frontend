@@ -2,7 +2,7 @@
   "name": "iot.automation.react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kadirsenol.com",
+  "homepage": "https://kadirsenol.github.io/IoTAutomation.Frontend",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/layout": "^2.3.1",
