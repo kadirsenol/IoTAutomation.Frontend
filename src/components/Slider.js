@@ -13,7 +13,7 @@ const Slider = () => {
     return (
       <div className="flex justify-center items-center h-[60vh]">
         <img
-          src="/yapimAsamasinda.png"
+          src="./yapimAsamasinda.png"
           alt="No content"
           className="w-200 h-200 object-contain opacity-80 mt-60 rounded-2xl"
         />
