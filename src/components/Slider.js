@@ -8,6 +8,20 @@ const Slider = () => {
 
   const solutions = useSelector((state)=>state.solutions.solutions)
 
+  //Geliştirme sonrasi kaldir
+  if (!solutions || solutions.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <img
+          src="/yapimAsamasinda.png"
+          alt="No content"
+          className="w-200 h-200 object-contain opacity-80 mt-60 rounded-2xl"
+        />
+      </div>
+    );
+  }
+  //
+
   return (
     
     <div className="flex justify-center items-center">

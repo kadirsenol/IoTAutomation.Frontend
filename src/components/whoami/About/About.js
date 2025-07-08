@@ -35,15 +35,15 @@ function About() {
             <br /><br />
 
             <ScrollAnimation animateIn="fadeInLeft">
-            After completing my high school education in Istanbul, I graduated from Decat University Mechatronics Engineering department between 2016-2017.Later, I completed the 600-hour Full Stack Developer training program offered by Bahçeşehir University.
+            After completing my high school education in Istanbul, I graduated from Firat University Mechatronics Engineering department with a score of 3.0 between 2016-2021. Later, I completed the 600-hour Full Stack Developer training program offered by Bahçeşehir University with outstanding success.  I started my Master's Degree with Thesis in Software Engineering at Kocaeli University in September 2025.
             </ScrollAnimation>
 
             <br /><br />
 
             <ScrollAnimation animateIn="fadeInLeft">
-            I have about 2 years of professional professional experience. I also work on IoT projects as a hobby
+            I have about 5 years of professional professional experience and i am to develop more innovative solutions in the field of software in the future and push the boundaries of technology.
               <div className="tagline2">
-            I am currently preparing for exams to get a master's degree in software engineering. I aim to develop more innovative solutions in the field of software in the future and push the boundaries of technology.
+            
               </div>
             </ScrollAnimation>
             

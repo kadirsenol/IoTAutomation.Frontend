@@ -50,6 +50,8 @@ function Hero() {
                     1000,
                     '.Net Developer.',
                     1000,
+                    'Angular Developer.',
+                    1000,
                     'React Developer.',
                     1000,
                     'SQL Developer.',

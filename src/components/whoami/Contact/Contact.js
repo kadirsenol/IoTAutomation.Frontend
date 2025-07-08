@@ -11,8 +11,8 @@ import { emptyTheFileName } from "../../../store/slices/inputfileuploadSlice";
 import { delMessage } from "../../../store/slices/textareaSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import axios from "axios";
 import * as Yup from "yup";
+import emailjs from "emailjs-com";
 
 const sendMailSchema = Yup.object().shape({
   Email: Yup.string()
@@ -22,78 +22,137 @@ const sendMailSchema = Yup.object().shape({
 });
 
 function Contact() {
-  const mailmessage = useSelector((state) => state.textarea.message);
+  // const mailmessage = useSelector((state) => state.textarea.message);
 
+  // const [click, setClick] = useState(false);
+  // const [clearText, setClearText] = useState();
+  // const dispatch = useDispatch();
+
+  // const attachmentName = useSelector(
+  //   (state) => state.inputfileupload.attachmentName
+  // );
+
+  // // Base64 string'i Blob'a dönüştürme fonksiyonu
+  // const base64toBlob = (base64String) => {
+  //   const byteCharacters = atob(base64String);
+  //   const byteNumbers = new Array(byteCharacters.length);
+  //   for (let i = 0; i < byteCharacters.length; i++) {
+  //     byteNumbers[i] = byteCharacters.charCodeAt(i);
+  //   }
+  //   const byteArray = new Uint8Array(byteNumbers);
+  //   return new Blob([byteArray]);
+  // };
+
+  // const sendEmail = async (values, actions) => {
+  //   if (mailmessage === null || mailmessage === "") {
+  //     toast.error("Message is required.");
+  //   } else {
+  //     const formData = new FormData();
+  //     formData.append("Message", mailmessage);
+  //     formData.append("SenderMailAdress", values.Email);
+
+  //     const fileContent = localStorage.getItem(attachmentName);
+  //     const blob = base64toBlob(fileContent);
+  //     const file = new File([blob], attachmentName);
+  //     formData.append("Attachment", file, attachmentName);
+
+  //     try {
+  //       const response = await axios.post("/Mail/SendEmail", formData, {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data", // form verisi olduğunu belirtmek için gerekli
+  //         },
+  //       });
+  //       if (response.status === 200) {
+  //         toast.success(response.data);
+  //         setClearText("");
+  //         setTimeout(() => setClearText(null), 500);
+  //         dispatch(emptyTheFileName(attachmentName));
+  //         actions.resetForm();
+  //         dispatch(delMessage());
+  //       } else {
+  //         toast.info(
+  //           "An unexpected situation has occurred, please try again by checking your information."
+  //         );
+  //       }
+  //     } catch (error) {
+  //       if (error.code === "ERR_NETWORK") {
+  //         toast.error("Could not connect to the server.");
+  //       } else if (error.response.status === 500) {
+  //         //Problem(), server side bissunes exceptions and all catch error
+  //         toast.error(error.response.data.detail);
+  //       } else if (error.response.status === 400) {
+  //         //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
+  //         Object.values(error.response.data.errors).forEach((value) => {
+  //           value.forEach((message) => {
+  //             toast.error(message);
+  //           });
+  //         });
+  //       } else {
+  //         toast.error("Opps! An unexpected error has occurred.");
+  //       }
+  //     }
+  //   }
+  //   setClick(false);
+  // };
+
+  const mailmessage = useSelector((state) => state.textarea.message);
   const [click, setClick] = useState(false);
   const [clearText, setClearText] = useState();
   const dispatch = useDispatch();
-
   const attachmentName = useSelector(
     (state) => state.inputfileupload.attachmentName
   );
 
-  // Base64 string'i Blob'a dönüştürme fonksiyonu
-  const base64toBlob = (base64String) => {
-    const byteCharacters = atob(base64String);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    return new Blob([byteArray]);
-  };
-
   const sendEmail = async (values, actions) => {
-    if (mailmessage === null || mailmessage === "") {
+    if (!mailmessage) {
       toast.error("Message is required.");
-    } else {
-      const formData = new FormData();
-      formData.append("Message", mailmessage);
-      formData.append("SenderMailAdress", values.Email);
-
-      const fileContent = localStorage.getItem(attachmentName);
-      const blob = base64toBlob(fileContent);
-      const file = new File([blob], attachmentName);
-      formData.append("Attachment", file, attachmentName);
-
-      try {
-        const response = await axios.post("/Mail/SendEmail", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data", // form verisi olduğunu belirtmek için gerekli
-          },
-        });
-        if (response.status === 200) {
-          toast.success(response.data);
-          setClearText("");
-          setTimeout(() => setClearText(null), 500);
-          dispatch(emptyTheFileName(attachmentName));
-          actions.resetForm();
-          dispatch(delMessage());
-        } else {
-          toast.info(
-            "An unexpected situation has occurred, please try again by checking your information."
-          );
-        }
-      } catch (error) {
-        if (error.code === "ERR_NETWORK") {
-          toast.error("Could not connect to the server.");
-        } else if (error.response.status === 500) {
-          //Problem(), server side bissunes exceptions and all catch error
-          toast.error(error.response.data.detail);
-        } else if (error.response.status === 400) {
-          //BadRequest(), server side valid. Eger frontend validinden bir sekil kurtulursa back validi devreye girecek
-          Object.values(error.response.data.errors).forEach((value) => {
-            value.forEach((message) => {
-              toast.error(message);
-            });
-          });
-        } else {
-          toast.error("Opps! An unexpected error has occurred.");
-        }
+      setClick(false);
+      return;
+    }
+  
+    const fromEmail = values.Email;
+    const fullMessage = `${fromEmail} kullanıcısından mesaj var:\n\n${mailmessage}`;
+  
+    const fileContent = localStorage.getItem(attachmentName);
+    let attachmentBase64 = "";
+  
+    if (fileContent) {
+      attachmentBase64 = fileContent;
+    }
+  
+    const templateParams = {
+      message: fullMessage,
+      reply_to: fromEmail, // sadece görünüm için, alıcıya mail gitmez
+      attachment: attachmentBase64
+        ? `data:application/octet-stream;base64,${attachmentBase64}`
+        : "",
+      filename: attachmentName,
+    };
+  
+    try {
+      const result = await emailjs.send(
+        "service_8iysq3w",          // senin EmailJS servis ID'in
+        "template_pngdqbo",       // EmailJS şablon ID
+        templateParams,
+        "CQaA49cizCW4DVN3Z"         // EmailJS Public Key (örneğin: oUzO0U12_xyz123)
+      );
+  
+      if (result.status === 200 || result.text === "OK") {
+        toast.success("Email successfully sent!");
+        setClearText("");
+        setTimeout(() => setClearText(null), 500);
+        dispatch(emptyTheFileName(attachmentName));
+        actions.resetForm();
+        dispatch(delMessage());
+      } else {
+        toast.error("An error occurred while sending the email.");
       }
+    } catch (error) {
+      toast.error("EmailJS Error: " + error.text || error.message);
     }
     setClick(false);
   };
+  
 
   return (
     <ContactWrapper id="contact">

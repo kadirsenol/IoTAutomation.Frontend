@@ -6,7 +6,7 @@ function Projects() {
     <>      
       <div className="ProjectWrapper" id="projects">
         <div className="Container ">
-          <div className="SectionTitle">Projects</div>
+          <div className="SectionTitle">Professional Projects</div>
           <Card data={ProjectList} />
         </div>
       </div>

@@ -7,6 +7,8 @@ import Footer from "../../src/components/whoami/Footer/Footer";
 import FixSocialIcon from "../../src/components/whoami/SocialIcon/FixSocialIcon";
 import ScrollToTop from "../../src/components/whoami/SocialIcon/ScrollToTop";
 import Education from "../components/whoami/Education/Education";
+import WorkExperience from "../../src/components/whoami/WorkExperience/WorkExperience";
+
 
 
 
@@ -17,6 +19,7 @@ function Whoami() {
       <Hero />
       <Education/>
       <Projects />
+      <WorkExperience />
       <About />
       <Contact />
       <FixSocialIcon />

@@ -29,6 +29,9 @@ const Header = ({ toggle }) => {
           <NavLink className="menu-item" to="projects">
             Projects
           </NavLink>
+          <NavLink className="menu-item" to="workExperience">
+            Work Experience
+          </NavLink>
           <NavLink className="menu-item" to="about">
             About
           </NavLink>
@@ -38,8 +41,7 @@ const Header = ({ toggle }) => {
         </NavMenu>
 
        
-        <Button variant="contained"  className="bg-white" color="inherit" >
-        
+        <Button variant="contained"  className="bg-white" color="inherit" >        
             Resume         
         </Button>
       

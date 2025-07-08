@@ -168,6 +168,9 @@ video {
 .ProjectWrapper {
   margin-top: -1rem;
 }
+.WorkExperience {
+  margin-top: -1rem;
+}
 
 /* ------------------------------------ Media for Container */
 @media (max-width: 1000px) {

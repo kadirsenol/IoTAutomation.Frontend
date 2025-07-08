@@ -26,7 +26,7 @@ function ProjectCard({data}) {
                 ))}
               </TechCardContainer>
               <BtnGroup>
-                {list.github_url.length > 0 && (
+                {list.github_url && (
                   <a
                     className="btn SecondaryBtn btn-shadow"
                     href={list.github_url}
@@ -36,7 +36,7 @@ function ProjectCard({data}) {
                     Github
                   </a>
                 )}
-                {list.demo_url.length > 0 && (
+                {list.demo_url && (
                   <a
                     className="btn PrimaryBtn btn-shadow"
                     href={list.demo_url}
@@ -44,6 +44,16 @@ function ProjectCard({data}) {
                     rel="noopener noreferrer"
                   >
                     Demo ➜
+                  </a>
+                )}
+                {list.derece_url && (
+                  <a
+                    className="btn PrimaryBtn btn-shadow"
+                    href={list.derece_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Degree ➜
                   </a>
                 )}
               </BtnGroup>
