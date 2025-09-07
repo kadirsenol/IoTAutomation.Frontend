@@ -88,7 +88,7 @@ const Login = () => {
         <div
           className="flex justify-center min-h-screen items-center relative "
           style={{
-            backgroundImage: `url(./loginBg.jpg)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/loginBg.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

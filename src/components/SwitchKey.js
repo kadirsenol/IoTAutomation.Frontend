@@ -12,7 +12,7 @@ const CustomSwitch = styled(Switch)(({ theme, svg1, svg2 }) => ({
       color: '#000000',
       transform: 'translateX(22px)',
       '& .MuiSwitch-thumb:before': {
-        backgroundImage: `url(${svg1})`,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/${svg1})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '70%',
@@ -36,7 +36,7 @@ const CustomSwitch = styled(Switch)(({ theme, svg1, svg2 }) => ({
       top: 0,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      backgroundImage: `url(${svg2})`,
+      backgroundImage: `url(${process.env.PUBLIC_URL}/${svg2})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: '70%',       

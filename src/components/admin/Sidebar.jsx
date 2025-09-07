@@ -99,7 +99,7 @@ const Sidebar = () => {
             <Box mb="20px">
               <Box display="flex" justifyContent="center" alignItems="cemter">
                 <img
-                  src={`./myprofileimage.png`}
+                  src={`${process.env.PUBLIC_URL}/myprofileimage.png`}
                   alt="admin-profile"
                   width="130px"
                   height="130px"

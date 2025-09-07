@@ -15,7 +15,7 @@ function ProjectCard({data}) {
         <ScrollAnimation animateIn="fadeInLeft" key={index}>
           <Card>
             <CardLeft className="flex justify-center items-center">
-              <img src={list.img} alt={list.name} className="rounded-2xl" />
+              <img src={`${process.env.PUBLIC_URL}/${list.img}`}  alt={list.name} className="rounded-2xl" />
             </CardLeft>
             <CardRight>
               <h4>{list.title}</h4>

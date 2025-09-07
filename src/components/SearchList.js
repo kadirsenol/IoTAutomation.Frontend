@@ -40,7 +40,7 @@ const SearchList = ({solution}) => {
                {solution && solution.map((item) => (                
                 <div onClick={()=>{dispatch(setSolution(item)); navigate("/SolutionDetail"); setIsClick(true) }} key={item.name} className=" cursor-pointer group relative flex gap-x-6 rounded-lg hover:bg-gray-200">
                   <div className="mt-2 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-500 group-hover:bg-white">
-                    <img src={`./${item.image}`} className="h-11 w-11 rounded-md text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                    <img src={`${process.env.PUBLIC_URL}/${item.image}`} className="h-11 w-11 rounded-md text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">

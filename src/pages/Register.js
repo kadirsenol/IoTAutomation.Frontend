@@ -121,7 +121,7 @@ const Register = () => {
       }) => (
         <div
           style={{
-            backgroundImage: `url(./registerBg.jpg)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/registerBg.jpg)`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

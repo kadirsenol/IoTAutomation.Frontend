@@ -70,8 +70,8 @@ const SolutionDetail = () => {
         style={{
           backgroundImage:
             solution !== ""
-              ? `url(./${solution.image})`
-              : `url(./whatisIoT.png)`,
+              ? `url(${process.env.PUBLIC_URL}/${solution.image})`
+              : `url(${process.env.PUBLIC_URL}/whatisIoT.png)`,
           backgroundAttachment: "fixed",
         }}
       >
@@ -109,7 +109,7 @@ const SolutionDetail = () => {
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
               {solution !== "" ? (
-               <div dangerouslySetInnerHTML={{ __html: solution.detailedDescription }} />
+                <div dangerouslySetInnerHTML={{ __html: solution.detailedDescription }} />
               ) : (
                 <>
                   <section>
@@ -186,17 +186,20 @@ const SolutionDetail = () => {
               variant="contained"
               color="inherit"
               size="large"
-              onClick={() =>{solution !== "" ? AddSolution() : navigate("/")}}
-              endIcon={ solution !== "" ? <AddShoppingCart /> : <AutoFixHigh/>}
+              onClick={() => { solution !== "" ? AddSolution() : navigate("/") }}
+              endIcon={solution !== "" ? <AddShoppingCart /> : <AutoFixHigh />}
             >
-              {solution !== "" ? "Add Cart" :"Start exploring" }
+              {solution !== "" ? "Add Cart" : "Start exploring"}
             </Button>
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex justify-center">
             <img
               src={
-                solution !== "" ? `./${solution.image}` : `./getstart.webp`
+                solution !== ""
+                  ? `${process.env.PUBLIC_URL}/${solution.image}`
+                  : `${process.env.PUBLIC_URL}/getstart.webp`
               }
+
               alt="mockup"
               className="rounded-md"
               style={{ alignSelf: "center" }}

@@ -79,7 +79,7 @@ export default function InputFileUpload() {
       }
     >
       Add File
-      <VisuallyHiddenInput type="file" onChange={(state)=>UploadFile(state)} value={VisuallyHiddenInputValue} />      
+      <VisuallyHiddenInput type="file" onChange={(state)=>UploadFile(state)} />      
     </Button>
     <div className='text-sm '>       
        {attachmentName !== "" ? <div className='ms-2 mt-1' onMouseEnter={()=>setUp(true)} onMouseLeave={()=>setUp(false)}> {up ? <Cancel className='cursor-pointer' onClick={()=>{dispatch(deleteFileName(attachmentName)); setUp(false)}} fontSize='small' color='error'/>: <CheckCircle color='inherit' fontSize='small'/> } <span> {up ? <>Press delete to remove the{' '}'{attachmentName}'{' '} file.</>: <>'{attachmentName}'</>} </span></div>: null}       

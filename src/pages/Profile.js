@@ -21,7 +21,7 @@ const Profile = () => {
           w="full"
           h="full"
           objectFit="cover"
-          src={"/cover2.jpg"}
+          src={`${process.env.PUBLIC_URL}/cover2.jpg`}
           alt="Cover"
         />
       </Box>

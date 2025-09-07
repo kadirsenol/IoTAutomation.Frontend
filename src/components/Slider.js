@@ -13,7 +13,7 @@ const Slider = () => {
     return (
       <div className="flex justify-center items-center h-[60vh]">
         <img
-          src="./yapimAsamasinda.png"
+          src={`${process.env.PUBLIC_URL}/yapimAsamasinda.png`}
           alt="No content"
           className="w-200 h-200 object-contain opacity-80 mt-60 rounded-2xl"
         />
@@ -35,7 +35,7 @@ const Slider = () => {
         {solutions && solutions.map((element)=>(
 
           <div className="carousel-item active">
-          <img src={`./${element.image}`}
+          <img src={`${process.env.PUBLIC_URL}/${element.image}`}
                 className="d-block w-100 rounded-2xl" alt="iot" />
           <div className="carousel-caption d-none d-md-block">
           <h5>{element.name}</h5>

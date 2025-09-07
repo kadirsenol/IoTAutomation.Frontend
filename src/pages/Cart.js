@@ -218,7 +218,7 @@ const Cart = () => {
         <div
           className="flex justify-center items-center bg-cover bg-center bg-no-repeat min-h-screen"
           style={{
-            backgroundImage: `url(./cartBg.svg)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/cartBg.svg)`,
             backgroundAttachment: "fixed",
           }}
         >
@@ -248,7 +248,7 @@ const Cart = () => {
                       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td className="p-4">
                           <img
-                            src={`./${element.image}`}
+                            src={`${process.env.PUBLIC_URL}/${element.image}`}
                             className="w-16 md:w-32 max-w-full max-h-full"
                             alt="IoT"
                           />
@@ -357,7 +357,7 @@ const Cart = () => {
         <div
           className="bg-cover bg-center bg-no-repeat min-h-screen"
           style={{
-            backgroundImage: `url(/preview.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/preview.png)`,
             backgroundAttachment: "fixed",
           }}
         >

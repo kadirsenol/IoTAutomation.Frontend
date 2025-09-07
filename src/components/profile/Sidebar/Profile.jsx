@@ -224,7 +224,7 @@ function Profile() {
         name={name +" "+ surName} 
         cursor="pointer"
         onClick={openChooseImage}
-        src={userProfile}
+        src={`${process.env.PUBLIC_URL}/${userProfile}`}
       >
         <AvatarBadge bg="brand.blue" boxSize="1em">
           <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">

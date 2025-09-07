@@ -9,7 +9,7 @@ const Error404 = () => {
   return(
 
     <div style={{ position: 'relative', width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
-    backgroundImage: `url(./error404.jpg)`,
+    backgroundImage: `url(${process.env.PUBLIC_URL}/error404.jpg)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",

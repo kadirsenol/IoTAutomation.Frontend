@@ -15,7 +15,7 @@ import WorkExperience from "../../src/components/whoami/WorkExperience/WorkExper
 
 function Whoami() {
   return (
-    <div className=" bg-cover bg-center bg-no-repeat min-h-screen  " style={{backgroundImage:`url(./apBg.svg)`,backgroundAttachment:'fixed'}}>
+    <div className=" bg-cover bg-center bg-no-repeat min-h-screen  " style={{backgroundImage:`url(${process.env.PUBLIC_URL}/apBg.svg)`,backgroundAttachment:'fixed'}}>
       <Hero />
       <Education/>
       <Projects />

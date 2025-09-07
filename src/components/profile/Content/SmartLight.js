@@ -152,7 +152,7 @@ const SmartLight = () => {
     <>
       <div
         style={{
-          backgroundImage: `url(${changeBackGround ? "./burningLamb.jpg" : "./nonburningLamb.jpg"})`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/${changeBackGround ? "burningLamb.jpg" : "nonburningLamb.jpg"})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

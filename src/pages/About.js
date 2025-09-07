@@ -15,7 +15,7 @@ const About = () => {
       <div
         className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light bg-cover bg-center bg-no-repeat min-h-screen rounded-md"
         style={{
-          backgroundImage:`url(./whatisIoT.png)`,
+          backgroundImage:`url(${process.env.PUBLIC_URL}/whatisIoT.png)`,
           backgroundAttachment: "fixed",
         }}
       >
@@ -119,7 +119,7 @@ const About = () => {
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex justify-center">
             <img
-              src={`./getstart.webp`}
+              src={`${process.env.PUBLIC_URL}/getstart.webp`}
               alt="mockup"
               className="rounded-md"
               style={{ alignSelf: "center" }}

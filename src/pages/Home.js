@@ -12,7 +12,7 @@ const Home = ()=>{
     return(
         
         <>        
-        <div className=" bg-cover bg-center bg-no-repeat min-h-screen  " style={{backgroundImage:`url(./homeBg.jpg)`,backgroundAttachment:'fixed'}}> 
+        <div className=" bg-cover bg-center bg-no-repeat min-h-screen  " style={{backgroundImage:`url(${process.env.PUBLIC_URL}/homeBg.jpg)`,backgroundAttachment:'fixed'}}> 
         <Slider/> 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {solutions && solutions.map((element)=> (

@@ -123,7 +123,7 @@ export default function Navbar() {
                   onClick={() => navigate("/")}
                   className=" flex flex-shrink-0 justify-center items-center cursor-pointer hover:bg-gray-700 rounded-md w-20 h-10 "
                 >
-                  <img className="h-8 mr-6" src="./iotnavbar.png" alt="MyCompany" />
+                  <img className="h-8 mr-6" src={`${process.env.PUBLIC_URL}/iotnavbar.png`} alt="MyCompany" />
                   <p className="hidden sm:block text-white -mx-4 my-2 md:text-2xl sm:text-lg font-semibold pr-5">
                     IoT
                   </p>
@@ -252,7 +252,7 @@ export default function Navbar() {
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-10 w-10 rounded-full"
-                          src="./userSymbol.png"
+                          src={`${process.env.PUBLIC_URL}/userSymbol.png`}
                           alt=""
                         />
                       </Menu.Button>

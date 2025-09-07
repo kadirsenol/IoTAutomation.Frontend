@@ -30,7 +30,7 @@ function ControlUI() {
      <SmartLight/>
      :  
     <div style={{ position: 'relative', width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
-    backgroundImage: `url(./userUi.png)`,
+    backgroundImage: `url(${process.env.PUBLIC_URL}/userUi.png)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
