@@ -46,8 +46,8 @@ export default function OptionsButton() {
         <Popover.Panel onMouseEnter={()=>{setIsPanel(true) ;setIsOpen(true)}} onMouseLeave={()=>{setIsPanel(false);setIsOpen(false)}} className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
           <div  className="w-96 max-w-md flex-auto overflow-hidden rounded-3xl bg-gray-50 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
             <div className="p-4">
-              {solutions && solutions.map((item) => (                
-                <div onClick={()=>{dispatch(setSolution(item)); navigate('/SolutionDetail') ;setIsPanel(false) ;setIsOpen(false)}} key={item.name} className=" cursor-pointer group relative flex gap-x-6 rounded-lg hover:bg-gray-200">
+              {solutions && solutions.map((item, index) => (                
+                <div key={item.id} onClick={()=>{dispatch(setSolution(item)); navigate('/SolutionDetail') ;setIsPanel(false) ;setIsOpen(false)}} className=" cursor-pointer group relative flex gap-x-6 rounded-lg hover:bg-gray-200">
                   <div className="mt-2 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-500 group-hover:bg-white">
                     <img src={`${process.env.PUBLIC_URL}/${item.image}`} className="h-11 w-11 rounded-md text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                   </div>
@@ -64,7 +64,7 @@ export default function OptionsButton() {
              {islogin ?  
              <>
              <div
-             key={""}                  
+            //  key={""}                  
              onClick={()=>{setIsPanel(false);setIsOpen(false);window.open('https://wa.me/905523642361', '_blank')}}             
              className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-neutral-300 cursor-pointer"
            >
@@ -72,7 +72,7 @@ export default function OptionsButton() {
              Contact
            </div>   
              <div
-               key={""}                  
+              //  key={""}                  
                onClick={()=>{navigate("/Cart");setIsPanel(false);setIsOpen(false)}}
                className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-neutral-300 cursor-pointer"
              >
@@ -84,7 +84,7 @@ export default function OptionsButton() {
              :  
                 <div className='flex justify-center ms-48'>
                 <div
-                  key={""}                  
+                  // key={""}                  
                   onClick={()=>{navigate("/Login");setIsPanel(false);setIsOpen(false)}}
                   className="flex items-center rounded-md justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-neutral-300 cursor-pointer"
                 >
@@ -92,7 +92,7 @@ export default function OptionsButton() {
                   Login
                 </div>
                 <div
-                key={""}                  
+                // key={""}                  
                 onClick={()=>{setIsPanel(false);setIsOpen(false); window.open('https://wa.me/905523642361', '_blank')}}
                 className="flex items-center rounded-md justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-neutral-300 cursor-pointer"
               >
