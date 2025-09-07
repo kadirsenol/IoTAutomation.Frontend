@@ -60,19 +60,19 @@ export const WorkExperienceList = [
 ];
 
 export const EducationList = [
-  {
-    img: "./kouLogo.png",
-    title: "Software Engineering (Master's Degree)",
-    description:
-      `I started my Master's degree with Thesis in Software Engineering at Kocaeli University in September 2025 for the fall semester of 2025-2026 education. 
-      With this educational process, I aim to deepen my academic background in the field of software development and specialize in the current technology 
-      areas of software. In addition to my academic development, I aim to become a stronger engineer both theoretically and practically by supporting my sector 
-      experience with scientific studies in a university environment. I will try to ensure that my thesis I will be working on has international qualifications.`,
-    tech_stack:[],
-    github_url: "",
-    demo_url: "",
-    derece_url:"",
-  },
+  // {
+  //   img: "./kouLogo.png",
+  //   title: "Software Engineering (Master's Degree)",
+  //   description:
+  //     `I started my Master's degree with Thesis in Software Engineering at Kocaeli University in September 2025 for the fall semester of 2025-2026 education. 
+  //     With this educational process, I aim to deepen my academic background in the field of software development and specialize in the current technology 
+  //     areas of software. In addition to my academic development, I aim to become a stronger engineer both theoretically and practically by supporting my sector 
+  //     experience with scientific studies in a university environment. I will try to ensure that my thesis I will be working on has international qualifications.`,
+  //   tech_stack:[],
+  //   github_url: "",
+  //   demo_url: "",
+  //   derece_url:"",
+  // },
   {
     img: "./bauLogo.png",
     title: "Full Stack Developer (Diploma of Education)",
